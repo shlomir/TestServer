@@ -9,15 +9,25 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/authenticate', function (req, res, next) {
     let authParams = req.body;
 
     res.send({
-        id: 7,
-        userName: authParams.userName,
-        firstName: 'Shlomi First name',
-        lastName: 'Lahav',
-        token: `This is the token for password: ${authParams.password}`,
+        data: {
+            id: 7,
+            username: authParams.userName,
+            firstname: 'Shlomi First name',
+            lastname: 'Lahav',
+            token: `This is the token for password: ${authParams.password}`
+        }
+    });
+});
+
+router.post('/logout', function (req, res, next) {
+    let authParams = req.body;
+
+    res.send({
+        success: true
     });
 });
 
